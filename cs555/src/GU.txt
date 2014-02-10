@@ -1,0 +1,6 @@
+0 @I0@ INDI
+1 NAME Mark Alan /Ardis/
+1 SEX M
+1 BIRT
+2 DATE 7 APR 1949
+1 FAMC @F1@
