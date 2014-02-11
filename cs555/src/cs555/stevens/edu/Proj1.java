@@ -11,6 +11,13 @@ public class Proj1{
 	public static void main(String [] args){
 		
 	}
+	/**
+	 * @author andy
+	 * @functionName read
+	 * @param sPath
+	 * @return 
+	 * @throws FileNotFoundException
+	 */
 	public int read(String sPath) throws FileNotFoundException {
 		try {
 			// Read the file
