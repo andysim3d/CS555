@@ -1,3 +1,3 @@
 Agile Method Develop
 
-By Ruixiang Chu, Xing Gao, Pengfei Zhang
+By Ruixiang Chu, xing gao, Pengfei Zhang
