@@ -8,17 +8,21 @@
 
 package edu.stevens.cs555.display;
 
+import edu.stevens.cs555.entities.ErrorOut;
 import edu.stevens.cs555.entities.Individual;
 
 public class Display {
 
-	static public String DisplayError( int ErrorCode, Individual indi ){
+	static public String DisplayError( ErrorOut out ){
+		if(out.flag == false)
+			return "";
+			
 		String Error = "";
-		System.out.println();
+		int ErrorCode = Integer.parseInt(out.type);
 		switch(ErrorCode)
 		{
 		case 1:
-			Error = "Wrong sex for role!";
+			Error = "Wrong sex for role";
 			break;
 		case 2:
 			Error = "Be parient to parient";
@@ -30,7 +34,7 @@ public class Display {
 			Error = "Married to a dead People";
 			break;
 		case 5:
-			Error = "Chindren is older than parents!";
+			Error = "Chindren is older than parents";
 			break;
 		case 6:
 			Error = "Death eariler than birth";
@@ -57,14 +61,9 @@ public class Display {
 				break;
 		}
 		
-		System.out.print(indi.getId()+ " " + Error);
-		return (indi.getId()+ " " + Error);
-	}
-	
-	static public String DisplayError(int ErrorCode, Individual indi1, Individual indi2){
-		DisplayError(ErrorCode, indi1);
-		System.out.println(" with " + indi2.getId());
-		return (DisplayError(ErrorCode, indi1) + " with " + indi2.getId()) ;
+		System.out.println(Error +" " + out.info);
+		//System.out.print(indi.getId()+ " " + Error);
+		return (Error +" " + out.info);
 	}
 }
 
