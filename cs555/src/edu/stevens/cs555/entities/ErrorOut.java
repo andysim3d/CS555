@@ -1,8 +1,14 @@
+/**
+ * 
+ */
 package edu.stevens.cs555.entities;
 
 public class ErrorOut {
+	//type code for look up
 	public String type;
-	public String flag;
+	//true is alarm been trigered
+	public boolean flag;
+	//info for result output
 	public String info;
 	public String getType() {
 		return type;
@@ -10,10 +16,10 @@ public class ErrorOut {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getFlag() {
+	public boolean getFlag() {
 		return flag;
 	}
-	public void setFlag(String flag) {
+	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
 	public String getInfo() {
