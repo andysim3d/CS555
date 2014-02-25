@@ -14,5 +14,3 @@
 1 HUSB @I1@
 1 WIFE @I2@
 0 TRLR
-
-

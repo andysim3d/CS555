@@ -47,10 +47,18 @@ public class Input2Node {
 			br = new BufferedReader(new FileReader(path));
 			String line = br.readLine();
 			while (line != null) {
+				
 				if (line.startsWith("0")) {
 					System.out.println(line);
 					if (line.endsWith("TRLR")) {
-
+						if (IorF != null && IorF.equals("I")) {
+							indNode.put(indi.getId(), indi);
+						} else if (IorF != null && IorF.equals("F")) {
+							fmNode.put(fm.getId(), fm);
+							System.out.println(fm.getId());
+						}
+						br.close();
+						return;
 					}
 					if (line.endsWith("INDI")) {
 						String id = line.substring(line.indexOf("@") + 1,
