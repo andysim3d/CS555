@@ -1,4 +1,4 @@
-package cs555.stevens.edu;
+package edu.stevens.cs555;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
