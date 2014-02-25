@@ -3,26 +3,27 @@ package edu.stevens.cs555.entities;
 import java.util.ArrayList;
 import java.util.Date;
 
-enum Sex {
-	  male, female;
-}
 
 public class Individual extends GedcomNode{
 
 	private String id;
 	private String name;
-	private Sex sex;
+	private String sex;
 	private Date birthday;
 	private Date deathday;
 	
-	private ArrayList<Integer> famc;
-	private ArrayList<Integer> fams;
+	private ArrayList<String> famc;
+	private ArrayList<String> fams;
 	
 	
 	public Individual(String id ){
 		this.id = id;
 	}
 	
+	public Individual() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -39,12 +40,12 @@ public class Individual extends GedcomNode{
 		this.name = name;
 	}
 
-	public Sex getSex() {
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex(Sex sex) {
-		this.sex = sex;
+	public void setSex(String output) {
+		this.sex = output;
 	}
 
 	public Date getBirthday() {
@@ -63,19 +64,19 @@ public class Individual extends GedcomNode{
 		this.deathday = deathday;
 	}
 	
-	public ArrayList<Integer> getFamc() {
+	public ArrayList<String> getFamc() {
 		return famc;
 	}
 
-	public void setFamc(ArrayList<Integer> famc) {
-		this.famc = famc;
+	public void setFamc(String famc) {
+		this.famc.add(famc);
 	}
 
-	public ArrayList<Integer> getFams() {
+	public ArrayList<String> getFams() {
 		return fams;
 	}
 
-	public void setFams(ArrayList<Integer> fams) {
-		this.fams = fams;
+	public void setFams(String fams) {
+		this.fams.add(fams);
 	}
 }

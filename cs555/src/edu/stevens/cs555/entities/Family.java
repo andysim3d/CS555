@@ -9,14 +9,18 @@ public class Family extends GedcomNode{
 	private String husb;
 	private String wife;
 	private ArrayList<String> chil;
-	private boolean marr;
-	private boolean div;
+	private boolean marr=false;
+	private boolean div=false;
 	private Date div_date;
-	
+	private Date marr_date;
 	public Family(String id){
 		this.id = id;
 	}
 	
+	public Family() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -45,8 +49,8 @@ public class Family extends GedcomNode{
 		return chil;
 	}
 	
-	public void setChil(ArrayList<String> chil) {
-		this.chil = chil;
+	public void setChil(String chil) {
+		this.chil.add(chil);
 	}
 	
 	public boolean isMarr() {
@@ -71,6 +75,13 @@ public class Family extends GedcomNode{
 	
 	public void setDiv_date(Date div_date) {
 		this.div_date = div_date;
+	}
+	public Date getMarr_date() {
+		return marr_date;
+	}
+	
+	public void setMarr_date(Date marr) {
+		this.marr_date = div_date;
 	}
 	
 	

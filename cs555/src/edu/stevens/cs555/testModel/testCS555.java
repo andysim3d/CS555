@@ -35,43 +35,49 @@ public class testCS555 {
 	}
 	
 
-	
-	@Test
-	public void testDisplay() throws IOException {
-		
-		ErrorOut [] out =  new ErrorOut[13];
-		
-		for(int i = 0; i < 13; i ++){
-			out[i] = new ErrorOut();
-			out[i].flag = true;
-			out[i].type = String.valueOf(i);
-			out[i].info = String.valueOf(i);
-		}
-		
-		assertTrue((Display.DisplayError(out[1])).toString().equals("Wrong sex for role 1"));
-		assertTrue((Display.DisplayError(out[2])).toString().equals("Be parient to parient 2"));
-		assertTrue((Display.DisplayError(out[3])).toString().equals("Div date earlier than marriage 3"));
-		assertTrue((Display.DisplayError(out[4])).toString().equals("Married to a dead People 4"));
-		assertTrue((Display.DisplayError(out[5])).toString().equals("Chindren is older than parents 5"));
-		assertTrue((Display.DisplayError(out[6])).toString().equals("Death eariler than birth 6"));
-		assertTrue((Display.DisplayError(out[7])).toString().equals("Marry to oneself 7"));
-		assertTrue((Display.DisplayError(out[8])).toString().equals("Marry with parents 8"));
-		assertTrue((Display.DisplayError(out[9])).toString().equals("Has 2 or more biological father or mothers 9"));
-		assertTrue((Display.DisplayError(out[10])).toString().equals("He or she is bigamy 10"));
-		assertTrue((Display.DisplayError(out[11])).toString().equals("He or she has a abnormal long life 11"));
-		assertTrue((Display.DisplayError(out[12])).toString().equals("He or she marrys to a sibling 12"));
-			
-		
-	}
+//	
+//	@Test
+//	public void testDisplay() throws IOException {
+//		
+//		ErrorOut [] out =  new ErrorOut[13];
+//		
+//		for(int i = 0; i < 13; i ++){
+//			out[i] = new ErrorOut();
+//			out[i].flag = true;
+//			out[i].type = String.valueOf(i);
+//			out[i].info = String.valueOf(i);
+//		}
+//		
+//		assertTrue((Display.DisplayError(out[1])).toString().equals("Wrong sex for role 1"));
+//		assertTrue((Display.DisplayError(out[2])).toString().equals("Be parient to parient 2"));
+//		assertTrue((Display.DisplayError(out[3])).toString().equals("Div date earlier than marriage 3"));
+//		assertTrue((Display.DisplayError(out[4])).toString().equals("Married to a dead People 4"));
+//		assertTrue((Display.DisplayError(out[5])).toString().equals("Chindren is older than parents 5"));
+//		assertTrue((Display.DisplayError(out[6])).toString().equals("Death eariler than birth 6"));
+//		assertTrue((Display.DisplayError(out[7])).toString().equals("Marry to oneself 7"));
+//		assertTrue((Display.DisplayError(out[8])).toString().equals("Marry with parents 8"));
+//		assertTrue((Display.DisplayError(out[9])).toString().equals("Has 2 or more biological father or mothers 9"));
+//		assertTrue((Display.DisplayError(out[10])).toString().equals("He or she is bigamy 10"));
+//		assertTrue((Display.DisplayError(out[11])).toString().equals("He or she has a abnormal long life 11"));
+//		assertTrue((Display.DisplayError(out[12])).toString().equals("He or she marrys to a sibling 12"));
+//			
+//		
+//	}
 	
 	@Test
 	public void testInput2Node(){
-		String str = null;
-		Input2Node test = Input2Node.getInstance(str);
+		String str = "C:\\testFile.txt";
+		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;
+		try {
+		test = Input2Node.getInstance(str);
 		indNode = test.getIndNode();
 		fmNode = test.getFmNode();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(indNode!=null);
 		assertTrue(fmNode!=null);
 	}
