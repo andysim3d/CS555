@@ -66,45 +66,47 @@ public class Input2Node {
 					indi = new Individual();
 					indi.setId(id);
 					System.out.println(line);
+					line = br.readLine();
 					while (!line.startsWith("0")) {
 						System.out.println(line);
 						// indNode.put(id, indi);
 						String[] output;
 						output = line.split(" ");
 
-						if (output[1] == "NAME") {
+						if (output[1].equals("NAME")) {
 							indi.setName(output[2]);
-						} else if (output[1] == "SEX") {
+						} else if (output[1].equals("SEX")) {
 							indi.setSex(output[2]);
-						} else if (output[1] == "BIRT") {
+						} else if (output[1].equals("BIRT")) {
 
 							// read addtional line for Node level 2
 							line = br.readLine();
 							output = line.split(" ");
 							SimpleDateFormat formatter = new SimpleDateFormat(
 									"MMM dd yyyy");
-							indi.setBirthday(formatter.parse(output[2]));
-						} else if (output[1] == "DEAT") {
+							indi.setBirthday(formatter.parse(output[3] + output[2] + output[4]));
+						} else if (output[1].equals("DEAT")) {
 							// read addtional line for Node level 2
 							line = br.readLine();
 							output = line.split(" ");
 							SimpleDateFormat formatter = new SimpleDateFormat(
 									"MMM dd yyyy");
 							indi.setDeathday((formatter.parse(output[2])));
-						} else if (output[1] == "FAMC") {
+						} else if (output[1].equals("FAMC")) {
 							indi.setFamc(output[2].substring(
 									output[2].indexOf("@"),
 									output[2].lastIndexOf("@")));
 
-						} else if (output[1] == "FAMS") {
+						} else if (output[1].equals("FAMS")) {
 							indi.setFams(output[2].substring(
 									output[2].indexOf("@"),
 									output[2].lastIndexOf("@")));
 						}
-						indNode.put(id, indi);
+						
 						// continue to read next line
 						line = br.readLine();
 					}
+					indNode.put(id, indi);
 
 				} else if (line.contains("FAM")) {
 					String id = line.substring(line.indexOf("@"),
@@ -112,13 +114,14 @@ public class Input2Node {
 
 					fm = new Family();
 					fm.setId(id);
+					line = br.readLine();
 					while (!line.startsWith("0")) {
 
 						// indNode.put(id, indi);
 						String[] output;
 						output = line.split(" ");
 
-						if (output[1] == "MARR") {
+						if (output[1].equals("MARR")) {
 							fm.setMarr(true);
 							// read addtional line for Node level 2
 							line = br.readLine();
@@ -127,15 +130,15 @@ public class Input2Node {
 									"MMM dd yyyy");
 							fm.setMarr_date((formatter.parse(output[2])));
 
-						} else if (output[1] == "HUSB") {
+						} else if (output[1].equals("HUSB")) {
 							fm.setHusb(output[2]);
-						} else if (output[1] == "WIFE") {
+						} else if (output[1].equals("WIFE")) {
 							fm.setWife(output[2]);
 
-						} else if (output[1] == "CHIL") {
+						} else if (output[1].equals("CHIL")) {
 							fm.setChil(output[2]);
 
-						} else if (output[1] == "DIV") {
+						} else if (output[1].equals("DIV")) {
 							fm.setDiv(true);
 							// read addtional line for Node level 2
 							line = br.readLine();

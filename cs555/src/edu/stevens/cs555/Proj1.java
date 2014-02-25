@@ -1,30 +1,38 @@
 package edu.stevens.cs555;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.stevens.cs555.factory.Input2Node;
 
+public class Proj1 {
 
+	public static void main(String[] args) throws Exception {
+		try {
+			Input2Node test = Input2Node
+					.getInstance("//Users//andy//git//CS555.stevens//cs555//src//TestGDMFile.txt");
+		} catch (Exception e) {
 
-public class Proj1{
-	
-	public static void main(String [] args){
-		
+		}
 	}
+
 	/**
 	 * @author andy
 	 * @functionName read
 	 * @param sPath
-	 * @return 
+	 * @return
 	 * @throws FileNotFoundException
 	 */
 	public int read(String sPath) throws FileNotFoundException {
 		try {
 			// Read the file
-			//BufferedReader fr = new BufferedReader(new FileReader(
-			//		"//Users//andy//Documents//workspace//SSW555//bin//GU.txt"));
-			BufferedReader fr = new BufferedReader(new FileReader(
-							sPath));
+			// BufferedReader fr = new BufferedReader(new FileReader(
+			// "//Users//andy//Documents//workspace//SSW555//bin//GU.txt"));
+			Input2Node test = Input2Node
+					.getInstance("//Users//andy//git//CS555.stevens//cs555//src//TestGDMFile.txt");
+
+			BufferedReader fr = new BufferedReader(new FileReader(sPath));
 			String str;
 
 			str = fr.readLine();
@@ -39,13 +47,12 @@ public class Proj1{
 		} catch (Exception e) {
 			System.out.print(e.toString());
 			throw new java.io.FileNotFoundException();
-			//return -1;
+			// return -1;
 		}
 
 	}
 
-	public static void parse(String str)
-	{
+	public static void parse(String str) {
 		Proj1 pro = new Proj1();
 		String[] spli = str.split("\\s+");
 		String Num = spli[0];
@@ -55,20 +62,16 @@ public class Proj1{
 		System.out.println(Num);
 		boolean Leag = pro.LeageTags.contains(Tag);
 
-		//compare the Tag with legal tags.
-		if(Leag)
-		{
+		// compare the Tag with legal tags.
+		if (Leag) {
 			System.out.println(Tag);
-		}
-		else
-		{
+		} else {
 			System.out.println("Invalid tag");
 		}
 	}
 
-	//legal tags set.
-	public Proj1()
-	{
+	// legal tags set.
+	public Proj1() {
 		LeageTags.add("INDI");
 		LeageTags.add("NAME");
 		LeageTags.add("SEX");
@@ -86,8 +89,7 @@ public class Proj1{
 		LeageTags.add("TRLR");
 		LeageTags.add("NOTE");
 	}
-	
-	private List<String> LeageTags = new ArrayList<String>();
 
+	private List<String> LeageTags = new ArrayList<String>();
 
 }

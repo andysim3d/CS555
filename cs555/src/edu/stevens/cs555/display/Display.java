@@ -9,7 +9,6 @@
 package edu.stevens.cs555.display;
 
 import edu.stevens.cs555.entities.ErrorOut;
-import edu.stevens.cs555.entities.Individual;
 
 public class Display {
 

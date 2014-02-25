@@ -1,4 +1,4 @@
-Report of Spint 1:
+Report of Sprint 1:
 By Ruixiang Chu, Xing Gao, Pengfei Zhang
 
 1.	Source code is in Src/
@@ -6,6 +6,9 @@ By Ruixiang Chu, Xing Gao, Pengfei Zhang
 3.	Project Velocity: 
 We Spend 4 days to finish our spint 1. 
 The first day, we install git as our version control tool.
-The 2nd day, we have a group meeting talking about details about spint 1.
+The 2nd day, we have a group meeting talking about details about sprint 1.
 3rd day, we finish all the test unit, and we complete our project code in 4th day.
 
+4.  Test completion rate: 
+Since this is our first sprint, we have to implement those fundamental functions, and some of them can't be tested or we don't know how to test. so we only test the Display() method and the TestInput2Node() method.
+5.  Nothing Changed in our 1st sprint process, but we may change something in the 2nd sprint.
