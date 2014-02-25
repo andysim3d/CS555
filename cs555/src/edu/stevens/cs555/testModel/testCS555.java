@@ -66,7 +66,7 @@ public class testCS555 {
 	
 	@Test
 	public void testInput2Node(){
-		String str = "C:\\testFile.txt";
+		String str = "//cs555//src//edu//stevens//cs555//testModel//testFile.txt";
 		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;
@@ -78,9 +78,11 @@ public class testCS555 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertTrue(indNode!=null);
-		assertTrue(fmNode!=null);
+
+		assertTrue(indNode.get("I1").getId().equals("I1"));
+		assertTrue(fmNode.get("F1").getId().equals("F1"));
 	}
+	
 	
 	
 

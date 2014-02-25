@@ -4,14 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.stevens.cs555.factory.Input2Node;
 
 public class Proj1 {
 
 	public static void main(String[] args) throws Exception {
 		try {
-			Input2Node test = Input2Node
-					.getInstance("//Users//andy//git//CS555.stevens//cs555//src//TestGDMFile.txt");
 		} catch (Exception e) {
 
 		}
@@ -29,8 +26,6 @@ public class Proj1 {
 			// Read the file
 			// BufferedReader fr = new BufferedReader(new FileReader(
 			// "//Users//andy//Documents//workspace//SSW555//bin//GU.txt"));
-			Input2Node test = Input2Node
-					.getInstance("//Users//andy//git//CS555.stevens//cs555//src//TestGDMFile.txt");
 
 			BufferedReader fr = new BufferedReader(new FileReader(sPath));
 			String str;
