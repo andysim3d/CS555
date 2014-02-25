@@ -1,0 +1,11 @@
+Report of Spint 1:
+By Ruixiang Chu, Xing Gao, Pengfei Zhang
+
+1.	Source code is in Src/
+2.  Tests and test results are in edu.stevens.cs555.testModel/.
+3.	Project Velocity: 
+We Spend 4 days to finish our spint 1. 
+The first day, we install git as our version control tool.
+The 2nd day, we have a group meeting talking about details about spint 1.
+3rd day, we finish all the test unit, and we complete our project code in 4th day.
+

@@ -1,6 +1,6 @@
 /* Name: TestForDisplayError.java
  * Author: Pengfei Zhang
- * Date: 24/02/2014
+ * Date: 22/02/2014
  * 
  * Function: Test DisplayErrors method
  */

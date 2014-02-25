@@ -1,6 +1,6 @@
 /* Name: Input2Node.java
  * Author: Gao Xing
- * Date: 
+ * Date: 24/02/2014
  * 
  * Function:Singlton Patten: getInstance than use getIndNode
  */
