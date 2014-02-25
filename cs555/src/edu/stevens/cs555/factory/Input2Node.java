@@ -18,25 +18,26 @@ public class Input2Node {
 
 	}
 
-	public Input2Node getInstance() {
+	public Input2Node getInstance(String path) {
 		if (instance == null) {
 			instance = new Input2Node();
+			instance.convertNode(path);
 		}
 		return instance;
 	}
 
-	private static Hashtable<String, Individual> indNode = null;
-	private static Hashtable<String, Family> fmNode = null;
+	private Hashtable<String, Individual> indNode = null;
+	private Hashtable<String, Family> fmNode = null;
 
-	public static void convertNode(String path) {
-
+	public void convertNode(String path) {
+		//Fill in two hashtable
 	}
 
 	public Hashtable<String, Individual> getIndNode() {
 		return this.indNode;
 	}
 
-	public Hashtable<String, Family> getfmNode() {
+	public Hashtable<String, Family> getFmNode() {
 		return this.fmNode;
 	}
 
