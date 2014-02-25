@@ -37,7 +37,7 @@ public class Input2Node {
 		return this.indNode;
 	}
 
-	public Hashtable<String, Family> getfmNode() {
+	public Hashtable<String, Family> getFmNode() {
 		return this.fmNode;
 	}
 
