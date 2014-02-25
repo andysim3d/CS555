@@ -17,13 +17,6 @@ import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 
 public class Input2Node {
-	public static final String[] TAG0S = new String[] { "INDI", "FAM", "TRLR",
-			"NOTE" };
-	public static final String[] TAG1S = new String[] { "NAME", "SEX", "BIRT",
-			"DEAT", "FAMC", "FAMS", "MARR", "HUSB", "WIFE", "CHIL", "DIV" };
-	public static final String[] TAG2S = new String[] { "DATE" };
-	public static int InValidData;
-
 	private static Input2Node instance = null;
 
 	private Input2Node() {
