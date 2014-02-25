@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Reports/Report.docx</name>
-			<type>1</type>
-			<location>/Users/andy/Documents/courses/Agile Develope/Report/ProjectReport.docx</location>
-		</link>
-	</linkedResources>
 </projectDescription>
