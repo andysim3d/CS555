@@ -62,10 +62,8 @@ public class Display {
 	
 	static public void DisplayError(int ErrorCode, Individual indi1, Individual indi2){
 		DisplayError(ErrorCode, indi1);
-		System.out.println("with " + indi2.getId());
+		System.out.println(" with " + indi2.getId());
 	}
-	
-	
 }
 
 
