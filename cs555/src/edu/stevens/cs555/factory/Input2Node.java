@@ -2,7 +2,7 @@
  * Author: Gao Xing
  * Date: 
  * 
- * Function: getInstance than use get
+ * Function:Singlton Patten: getInstance than use getIndNode
  */
 package edu.stevens.cs555.factory;
 
@@ -18,7 +18,7 @@ public class Input2Node {
 
 	}
 
-	public Input2Node getInstance(String path) {
+	public static Input2Node getInstance(String path) {
 		if (instance == null) {
 			instance = new Input2Node();
 			instance.convertNode(path);
