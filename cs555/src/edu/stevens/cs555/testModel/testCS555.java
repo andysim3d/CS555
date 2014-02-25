@@ -9,6 +9,7 @@ package edu.stevens.cs555.testModel;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.Hashtable;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -17,7 +18,9 @@ import org.junit.Test;
 import edu.stevens.cs555.*;
 import edu.stevens.cs555.display.Display;
 import edu.stevens.cs555.entities.ErrorOut;
+import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
+import edu.stevens.cs555.factory.Input2Node;
 
 public class testCS555 {
 	
@@ -59,6 +62,18 @@ public class testCS555 {
 		assertTrue((Display.DisplayError(out[12])).toString().equals("He or she marrys to a sibling 12"));
 			
 		
+	}
+	
+	@Test
+	public void testInput2Node(){
+		String str = null;
+		Input2Node test = Input2Node.getInstance(str);
+		Hashtable<String, Individual> indNode = null;
+		Hashtable<String, Family> fmNode = null;
+		indNode = test.getIndNode();
+		fmNode = test.getFmNode();
+		assertTrue(indNode!=null);
+		assertTrue(fmNode!=null);
 	}
 	
 	
