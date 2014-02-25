@@ -12,12 +12,13 @@ public class Individual extends GedcomNode{
 	private Date birthday;
 	private Date deathday;
 	
-	private ArrayList<String> famc;
-	private ArrayList<String> fams;
+	private ArrayList<String> famc = new ArrayList<String>();
+	private ArrayList<String> fams = new ArrayList<String>();
 	
 	
 	public Individual(String id ){
 		this.id = id;
+		
 	}
 	
 	public Individual() {

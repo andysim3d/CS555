@@ -8,7 +8,7 @@ public class Family extends GedcomNode{
 	private String id;
 	private String husb;
 	private String wife;
-	private ArrayList<String> chil;
+	private ArrayList<String> chil = new ArrayList<String>();
 	private boolean marr=false;
 	private boolean div=false;
 	private Date div_date;

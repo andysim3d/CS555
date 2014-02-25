@@ -66,7 +66,7 @@ public class testCS555 {
 	
 	@Test
 	public void testInput2Node(){
-		String str = "c:\\TEMP\\testFile.txt";
+		String str = "//Users//andy//git//CS555.stevens//cs555//src//edu//stevens//cs555//testModel//testFile.txt";
 		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;
@@ -76,7 +76,7 @@ public class testCS555 {
 		fmNode = test.getFmNode();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 
 		assertTrue(indNode.get("I1").getId().equals("I1"));

@@ -56,10 +56,13 @@ public class Input2Node {
 			while (line != null) {
 				if (line.startsWith("0")) {
 					System.out.println(line);
+					if (line.endsWith("TRLR")) {
+
+					}
 					if (line.endsWith("INDI")) {
 						String id = line.substring(line.indexOf("@") + 1,
 								line.lastIndexOf("@"));
-						//System.out.println(id);
+						// System.out.println(id);
 
 						if (IorF == "I") {
 							indNode.put(indi.getId(), indi);
@@ -70,25 +73,27 @@ public class Input2Node {
 						IorF = "I";
 						indi = new Individual();
 						indi.setId(id);
+						
 						// System.out.println(line);
 					} else if (line.endsWith("FAM")) {
-						// System.out.println(line);
+						
 						String id = line.substring(line.indexOf("@") + 1,
 								line.lastIndexOf("@"));
-						//System.out.println(id);
-						if (IorF!=null &&IorF.equals("I")) {
+						
+						if (IorF != null && IorF.equals("I")) {
 							indNode.put(indi.getId(), indi);
-						} else if (IorF!=null &&IorF.equals("F")) {
+						}
+						else if (IorF != null && IorF.equals("F")) {
 							fmNode.put(fm.getId(), fm);
 						}
 						IorF = "F";
 						fm = new Family();
 						fm.setId(id);
-						 //System.out.println(line);
-					} else{
-						if (IorF!=null &&IorF.equals("I")) {
+						// System.out.println(line);
+					} else {
+						if (IorF != null && IorF.equals("I")) {
 							indNode.put(indi.getId(), indi);
-						} else if (IorF!=null &&IorF.equals("F")) {
+						} else if (IorF != null && IorF.equals("F")) {
 							fmNode.put(fm.getId(), fm);
 							System.out.println(fm.getId());
 						}
@@ -96,11 +101,9 @@ public class Input2Node {
 						// =======
 
 						// continue to read next line
-						//line = br.readLine();
-						// >>>>>>> branch 'master' of
-						// https://github.com/andysim3d/CS555.git
+						// line = br.readLine();
 					}
-				}else {
+				} else {
 					// System.out.println(line);
 					// indNode.put(id, indi);
 					String[] output;
@@ -110,20 +113,20 @@ public class Input2Node {
 						// System.out.println(line);
 					}
 					output = line.split(" ");
-					if (output[1] == "NAME") {
+					if (output[1].equals("NAME")) {
 						indi.setName(output[2]);
-					} else if (output[1] == "SEX") {
+					} else if (output[1].equals("SEX")) {
 						indi.setSex(output[2]);
-					} else if (output[1] == "BIRT") {
+					} else if (output[1].equals("BIRT")) {
 
 						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
 								"MMM dd yyyy");
-						indi.setBirthday((formatter.parse(output[2] + " "
-								+ output[3] + " " + output[4])));
-					} else if (output[1] == "DEAT") {
+						indi.setBirthday((formatter.parse(output[3] + " "
+								+ output[2] + " " + output[4])));
+					} else if (output[1].equals("DEAT")) {
 						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
@@ -131,18 +134,18 @@ public class Input2Node {
 								"MMM dd yyyy");
 						indi.setDeathday((formatter.parse(output[2] + " "
 								+ output[3] + " " + output[4])));
-					} else if (output[1] == "FAMC") {
+					} else if (output[1].equals("FAMC")) {
 						indi.setFamc(output[2].substring(
 								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
 
-					} else if (output[1] == "FAMS") {
+					} else if (output[1].equals("FAMS")) {
 						indi.setFams(output[2].substring(
 								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
 						System.out.println(line);
 
-					} else if (output[1] == "MARR") {
+					} else if (output[1].equals("MARR")) {
 						fm.setMarr(true);
 						// read addtional line for Node level 2
 						line = br.readLine();
@@ -152,23 +155,23 @@ public class Input2Node {
 						fm.setMarr_date((formatter.parse(output[2] + " "
 								+ output[3] + " " + output[4])));
 
-					} else if (output[1] == "HUSB") {
+					} else if (output[1].equals("HUSB")) {
 						fm.setHusb(output[2]);
-					} else if (output[1] == "WIFE") {
+					} else if (output[1].equals("WIFE")) {
 						fm.setWife(output[2]);
 
-					} else if (output[1] == "CHIL") {
+					} else if (output[1].equals("CHIL")) {
 						fm.setChil(output[2]);
 
-					} else if (output[1] == "DIV") {
+					} else if (output[1].equals("DIV")) {
 						fm.setDiv(true);
 						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
 								"MMM dd yyyy");
-						fm.setDiv_date((formatter.parse(output[2] + " "
-								+ output[3] + " " + output[4])));
+						fm.setDiv_date((formatter.parse(output[3] + " "
+								+ output[2] + " " + output[4])));
 					}
 
 				}
@@ -176,7 +179,7 @@ public class Input2Node {
 			}
 
 		} finally {
-			br.close();
+			// br.close();
 		}
 	}
 
