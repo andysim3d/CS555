@@ -66,7 +66,7 @@ public class testCS555 {
 	
 	@Test
 	public void testInput2Node(){
-		String str = "//cs555//src//edu//stevens//cs555//testModel//testFile.txt";
+		String str = "c:\\TEMP\\testFile.txt";
 		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;

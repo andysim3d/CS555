@@ -8,7 +8,9 @@ package edu.stevens.cs555.factory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Hashtable;
 
 import edu.stevens.cs555.entities.Family;
@@ -142,7 +144,7 @@ public class Input2Node {
 
 					} else if (output[1] == "MARR") {
 						fm.setMarr(true);
-						// read additional line for Node level 2
+						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
@@ -160,7 +162,7 @@ public class Input2Node {
 
 					} else if (output[1] == "DIV") {
 						fm.setDiv(true);
-						// read additional line for Node level 2
+						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
