@@ -15,13 +15,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import edu.stevens.cs555.*;
+import edu.stevens.cs555.display.Display;
 import edu.stevens.cs555.entities.Individual;
 
 public class TestForDisplayError {
 	
 
-	private Individual indi1;
-	private Individual indi2;
+
 	
 	@BeforeClass
 	public static void testSetup(){
@@ -32,18 +32,15 @@ public class TestForDisplayError {
 		
 	}
 	
-	/*@Test(expected = java.io.FileNotFoundException.class)
-	public void testExcep() throws IOException{
-		Proj1 target = new Proj1();
-		target.read("//Users//andy//Documents//workspace//cs555//bin//GU1.txt");
-	}*/
+
 	
 	@Test
 	public void test() throws IOException {
-		indi
-		Proj1 target = new Proj1();
+		Individual indi1 = new Individual("@0001@");
+		Individual indi2 = new Individual("@0002@");
 		
-		//assertEquals("", 1, );
+		assertEquals("@0001@ Wrong sex for role!",(Display.DisplayError(1,indi1)).toString());
+		
 	}
 	
 	
