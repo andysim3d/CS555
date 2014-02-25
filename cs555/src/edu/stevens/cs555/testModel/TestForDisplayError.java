@@ -20,8 +20,6 @@ import edu.stevens.cs555.entities.Individual;
 
 public class TestForDisplayError {
 	
-
-
 	
 	@BeforeClass
 	public static void testSetup(){
@@ -38,8 +36,7 @@ public class TestForDisplayError {
 	public void test() throws IOException {
 		Individual indi1 = new Individual("@0001@");
 		Individual indi2 = new Individual("@0002@");
-		
-		assertEquals("@0001@ Wrong sex for role!",(Display.DisplayError(1,indi1)).toString());
+		assertTrue((Display.DisplayError(1,indi1)).toString().equals("@0001@ Wrong sex for role!"));
 		
 	}
 	
