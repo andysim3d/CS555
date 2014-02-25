@@ -12,7 +12,7 @@ import edu.stevens.cs555.entities.Individual;
 
 public class Display {
 
-	static public void DisplayError( int ErrorCode, Individual indi ){
+	static public String DisplayError( int ErrorCode, Individual indi ){
 		String Error = "";
 		System.out.println();
 		switch(ErrorCode)
@@ -58,13 +58,13 @@ public class Display {
 		}
 		
 		System.out.print(indi.getId()+ " " + Error);
-		return ;
+		return (indi.getId()+ " " + Error);
 	}
 	
-	static public void DisplayError(int ErrorCode, Individual indi1, Individual indi2){
+	static public String DisplayError(int ErrorCode, Individual indi1, Individual indi2){
 		DisplayError(ErrorCode, indi1);
 		System.out.println(" with " + indi2.getId());
-		return ;
+		return (DisplayError(ErrorCode, indi1) + " with " + indi2.getId()) ;
 	}
 }
 
