@@ -7,7 +7,7 @@ enum Sex {
 	  male, female;
 }
 
-public class Individual {
+public class Individual extends GedcomNode{
 
 	private String id;
 	private String name;

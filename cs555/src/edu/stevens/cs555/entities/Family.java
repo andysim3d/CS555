@@ -3,7 +3,7 @@ package edu.stevens.cs555.entities;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Family {
+public class Family extends GedcomNode{
 
 	private String id;
 	private String husb;
