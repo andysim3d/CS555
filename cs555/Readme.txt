@@ -2,4 +2,8 @@ Agile Method Develop
 
 By Ruixiang Chu, Xing Gao, Pengfei Zhang
 
-18/02/2014
+TestBy Pengfei Zhang
+
+Version 0.0.0.1
+
+24/02/2014
