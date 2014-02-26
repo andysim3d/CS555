@@ -128,7 +128,7 @@ public class testCS555 {
 		Hashtable<String, Individual> indNode = new Hashtable<String, Individual> ();
 		indNode.put(husb.getId(), husb);
 		indNode.put(wife.getId(), wife);
-		ArrayList<ErrorOut> errors = wrongSex.sexCheck(indNode, fmNode);
+		ArrayList<ErrorOut> errors = wrongSex.sexCheck(fmNode, indNode);
 		assertTrue(errors.size()==2);
 	}
 	
