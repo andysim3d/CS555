@@ -11,6 +11,17 @@ public class ErrorOut {
 	// info for result output
 	public String info;
 
+	public ErrorOut(String type, boolean flag, String info) {
+		this.type = type;
+		this.flag = flag;
+		this.info = info;
+
+	}
+
+	public ErrorOut() {
+
+	}
+
 	public String getType() {
 		return type;
 	}

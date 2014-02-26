@@ -7,21 +7,27 @@
 
 package edu.stevens.cs555.testModel;
 
+import static org.junit.Assert.assertTrue;
+
+
 import static org.junit.Assert.*;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.stevens.cs555.*;
 import edu.stevens.cs555.display.Display;
 import edu.stevens.cs555.entities.ErrorOut;
 import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
+import edu.stevens.cs555.validation.numberOfFamily;
+import edu.stevens.cs555.validation.wrongSex;
 
 public class testCS555 {
 
@@ -92,5 +98,40 @@ public class testCS555 {
 		assertTrue(indNode.get("I1").getId().equals("I1"));
 		assertTrue(fmNode.get("F1").getId().equals("F1"));
 	}
+
+	@Test 
+	public void testNumberOfFamily(){
+		Family fm = new Family();
+		fm.setId("I1");
+		fm.setChil("Tom");
+		fm.setChil("Jerry");
+		Hashtable<String, Family> fmNode = new Hashtable<String, Family>();
+		fmNode.put(fm.getId(), fm);
+		assertTrue(numberOfFamily.numberOutInt(fmNode)==4);
+		
+	}
+	
+	@Test
+	public void testWrongSex(){
+		Family fm = new Family();
+		Individual husb = new Individual();
+		Individual wife = new Individual();
+		husb.setId("I1");
+		wife.setId("I2");
+		husb.setSex("F");
+		wife.setSex("M");
+		fm.setHusb("I1");
+		fm.setWife("I2");
+		fm.setId("F1");
+		Hashtable<String, Family> fmNode = new Hashtable<String, Family>();
+		fmNode.put(fm.getId(), fm);
+		Hashtable<String, Individual> indNode = new Hashtable<String, Individual> ();
+		indNode.put(husb.getId(), husb);
+		indNode.put(wife.getId(), wife);
+		ArrayList<ErrorOut> errors = wrongSex.sexCheck(indNode, fmNode);
+		assertTrue(errors.size()==2);
+	}
+	
+
 
 }
