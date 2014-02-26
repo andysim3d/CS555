@@ -157,12 +157,15 @@ public class Input2Node {
 								+ output[3] + " " + output[4])));
 
 					} else if (output[1].equals("HUSB")) {
-						fm.setHusb(output[2]);
+						fm.setHusb(output[2].substring(output[2].indexOf("@")+1,
+								output[2].lastIndexOf("@")));
 					} else if (output[1].equals("WIFE")) {
-						fm.setWife(output[2]);
+						fm.setWife(output[2].substring(output[2].indexOf("@")+1,
+								output[2].lastIndexOf("@")));
 
 					} else if (output[1].equals("CHIL")) {
-						fm.setChil(output[2]);
+						fm.setChil(output[2].substring(output[2].indexOf("@")+1,
+								output[2].lastIndexOf("@")));
 
 					} else if (output[1].equals("DIV")) {
 						fm.setDiv(true);
