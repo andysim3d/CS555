@@ -59,23 +59,19 @@ public class Input2Node {
 						}
 						br.close();
 						return;
-					}
-					if (line.endsWith("INDI")) {
+					}else if (line.endsWith("INDI")) {
 						String id = line.substring(line.indexOf("@") + 1,
 								line.lastIndexOf("@"));
-						// System.out.println(id);
-
 						if (IorF == "I") {
 							indNode.put(indi.getId(), indi);
-							// System.out.println(indNode.get(id).getId());
+
 						} else if (IorF == "F") {
 							fmNode.put(fm.getId(), fm);
 						}
 						IorF = "I";
 						indi = new Individual();
 						indi.setId(id);
-						
-						// System.out.println(line);
+
 					} else if (line.endsWith("FAM")) {
 						
 						String id = line.substring(line.indexOf("@") + 1,
@@ -90,7 +86,6 @@ public class Input2Node {
 						IorF = "F";
 						fm = new Family();
 						fm.setId(id);
-						// System.out.println(line);
 					} else {
 						if (IorF != null && IorF.equals("I")) {
 							indNode.put(indi.getId(), indi);
@@ -99,19 +94,15 @@ public class Input2Node {
 							System.out.println(fm.getId());
 						}
 						IorF = null;
-						// =======
 
-						// continue to read next line
-						// line = br.readLine();
 					}
 				} else {
-					// System.out.println(line);
-					// indNode.put(id, indi);
+
 					String[] output;
 
 					if (line.length() == 0) {
 						line = br.readLine();
-						// System.out.println(line);
+
 					}
 					output = line.split(" ");
 					if (output[1].equals("NAME")) {
@@ -120,7 +111,6 @@ public class Input2Node {
 						indi.setSex(output[2]);
 					} else if (output[1].equals("BIRT")) {
 
-						// read addtional line for Node level 2
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
@@ -128,7 +118,7 @@ public class Input2Node {
 						indi.setBirthday((formatter.parse(output[3] + " "
 								+ output[2] + " " + output[4])));
 					} else if (output[1].equals("DEAT")) {
-						// read addtional line for Node level 2
+
 						line = br.readLine();
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
