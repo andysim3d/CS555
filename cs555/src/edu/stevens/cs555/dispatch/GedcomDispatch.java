@@ -10,7 +10,7 @@ import edu.stevens.cs555.factory.Input2Node;
 public class GedcomDispatch {
 
 	private Input2Node node;
-	
+
 	public void cli() {
 
 		// Main command-line interface loop
@@ -25,15 +25,16 @@ public class GedcomDispatch {
 					String cmd = inputs[0];
 					if (cmd.length() == 0)
 						;
-					else if ("read".equals(cmd)){
+					else if ("read".equals(cmd)) {
 						read(inputs[1]);
-					}else if ("help".equals(cmd)){
+					} else if ("help".equals(cmd)) {
 						help(inputs);
-					}else if ("quit".equals(cmd)){
+					} else if ("quit".equals(cmd)) {
 						System.out.println("Exit GEDCOM Analyzer!");
 						return;
-					}else
-						System.out.println("Bad input.  Type \"help\" for more information.");
+					} else
+						System.out
+								.println("Bad input.  Type \"help\" for more information.");
 				}
 			}
 		} catch (EOFException e) {

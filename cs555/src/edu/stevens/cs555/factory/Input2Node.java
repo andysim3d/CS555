@@ -47,7 +47,7 @@ public class Input2Node {
 			br = new BufferedReader(new FileReader(path));
 			String line = br.readLine();
 			while (line != null) {
-				
+
 				if (line.startsWith("0")) {
 					System.out.println(line);
 					if (line.endsWith("TRLR")) {
@@ -59,7 +59,7 @@ public class Input2Node {
 						}
 						br.close();
 						return;
-					}else if (line.endsWith("INDI")) {
+					} else if (line.endsWith("INDI")) {
 						String id = line.substring(line.indexOf("@") + 1,
 								line.lastIndexOf("@"));
 						if (IorF == "I") {
@@ -73,14 +73,13 @@ public class Input2Node {
 						indi.setId(id);
 
 					} else if (line.endsWith("FAM")) {
-						
+
 						String id = line.substring(line.indexOf("@") + 1,
 								line.lastIndexOf("@"));
-						
+
 						if (IorF != null && IorF.equals("I")) {
 							indNode.put(indi.getId(), indi);
-						}
-						else if (IorF != null && IorF.equals("F")) {
+						} else if (IorF != null && IorF.equals("F")) {
 							fmNode.put(fm.getId(), fm);
 						}
 						IorF = "F";
@@ -147,14 +146,17 @@ public class Input2Node {
 								+ output[3] + " " + output[4])));
 
 					} else if (output[1].equals("HUSB")) {
-						fm.setHusb(output[2].substring(output[2].indexOf("@")+1,
+						fm.setHusb(output[2].substring(
+								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
 					} else if (output[1].equals("WIFE")) {
-						fm.setWife(output[2].substring(output[2].indexOf("@")+1,
+						fm.setWife(output[2].substring(
+								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
 
 					} else if (output[1].equals("CHIL")) {
-						fm.setChil(output[2].substring(output[2].indexOf("@")+1,
+						fm.setChil(output[2].substring(
+								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
 
 					} else if (output[1].equals("DIV")) {
@@ -173,7 +175,7 @@ public class Input2Node {
 			}
 
 		} finally {
-			 br.close();
+			br.close();
 		}
 	}
 

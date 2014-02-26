@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Proj1 {
 
 	public static void main(String[] args) throws Exception {

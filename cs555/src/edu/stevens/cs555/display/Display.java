@@ -5,21 +5,19 @@
  * Function: Display Errors
  */
 
-
 package edu.stevens.cs555.display;
 
 import edu.stevens.cs555.entities.ErrorOut;
 
 public class Display {
 
-	static public String DisplayError( ErrorOut out ){
-		if(out.flag == false)
+	static public String DisplayError(ErrorOut out) {
+		if (out.flag == false)
 			return "";
-			
+
 		String Error = "";
 		int ErrorCode = Integer.parseInt(out.type);
-		switch(ErrorCode)
-		{
+		switch (ErrorCode) {
 		case 1:
 			Error = "Wrong sex for role";
 			break;
@@ -56,14 +54,12 @@ public class Display {
 		case 12:
 			Error = "He or she marrys to a sibling";
 			break;
-			default:
-				break;
+		default:
+			break;
 		}
-		
-		System.out.println(Error +" " + out.info);
-		//System.out.print(indi.getId()+ " " + Error);
-		return (Error +" " + out.info);
+
+		System.out.println(Error + " " + out.info);
+		// System.out.print(indi.getId()+ " " + Error);
+		return (Error + " " + out.info);
 	}
 }
-
-

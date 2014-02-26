@@ -3,24 +3,22 @@ package edu.stevens.cs555.entities;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-public class Individual extends GedcomNode{
+public class Individual extends GedcomNode {
 
 	private String id;
 	private String name;
 	private String sex;
 	private Date birthday;
 	private Date deathday;
-	
+
 	private ArrayList<String> famc = new ArrayList<String>();
 	private ArrayList<String> fams = new ArrayList<String>();
-	
-	
-	public Individual(String id ){
+
+	public Individual(String id) {
 		this.id = id;
-		
+
 	}
-	
+
 	public Individual() {
 		// TODO Auto-generated constructor stub
 	}
@@ -64,7 +62,7 @@ public class Individual extends GedcomNode{
 	public void setDeathday(Date deathday) {
 		this.deathday = deathday;
 	}
-	
+
 	public ArrayList<String> getFamc() {
 		return famc;
 	}
