@@ -180,7 +180,7 @@ public class Input2Node {
 			}
 
 		} finally {
-			// br.close();
+			 br.close();
 		}
 	}
 
