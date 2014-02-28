@@ -45,7 +45,11 @@ public class Proj1 {
 		}
 
 	}
-
+	/**
+	 * Function name: parse
+	 * @param str strings to be parsed
+	 * return void
+	 */
 	public static void parse(String str) {
 		Proj1 pro = new Proj1();
 		String[] spli = str.split("\\s+");

@@ -1,1 +1,7 @@
-cs555.stevens.edu
+edu.stevens.cs555
+edu.stevens.cs555.dispatch
+edu.stevens.cs555.display
+edu.stevens.cs555.entities
+edu.stevens.cs555.factory
+edu.stevens.cs555.testModel
+edu.stevens.cs555.validation
