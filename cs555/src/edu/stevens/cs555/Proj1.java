@@ -23,8 +23,8 @@ public class Proj1 {
 	public int read(String sPath) throws FileNotFoundException {
 		try {
 			// Read the file
-			// BufferedReader fr = new BufferedReader(new FileReader(
-			// "//Users//andy//Documents//workspace//SSW555//bin//GU.txt"));
+			 //BufferedReader fr = new BufferedReader(new FileReader(
+			 //"//Users//andy//Documents//workspace//SSW555//bin//GU.txt"));
 
 			BufferedReader fr = new BufferedReader(new FileReader(sPath));
 			String str;

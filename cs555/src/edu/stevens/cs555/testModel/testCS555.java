@@ -82,7 +82,7 @@ public class testCS555 {
 
 	@Test
 	public void testInput2Node() {
-		String str = "c://testFile.txt";
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/testFile.txt";
 		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;

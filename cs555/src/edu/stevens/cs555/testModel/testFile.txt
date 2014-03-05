@@ -1,6 +1,6 @@
 0 @I1@ INDI
 1 NAME John /Smith/
-1 SEXN M
+1 SEX M
 1 BIRT
 2 DATE 2 FEB 1980
 1 FAMS @F1@

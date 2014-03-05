@@ -19,7 +19,5 @@ public class wrongSex {
 			}
 		}
 		return errors;
-		
 	}
-
 }
