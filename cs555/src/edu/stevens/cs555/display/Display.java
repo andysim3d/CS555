@@ -58,7 +58,7 @@ public class Display {
 			break;
 		}
 
-		System.out.println(Error + " " + out.info);
+		//System.out.println(Error + " " + out.info);
 		// System.out.print(indi.getId()+ " " + Error);
 		return (Error + " " + out.info);
 	}

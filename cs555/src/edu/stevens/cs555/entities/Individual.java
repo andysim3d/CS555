@@ -10,12 +10,17 @@ public class Individual extends GedcomNode {
 	private String sex;
 	private Date birthday;
 	private Date deathday;
+	//used to check whether he has the record of born and death
+	private boolean hasBorn;
+	private boolean hasDead;
 
 	private ArrayList<String> famc = new ArrayList<String>();
 	private ArrayList<String> fams = new ArrayList<String>();
 
 	public Individual(String id) {
 		this.id = id;
+		this.hasBorn = false;
+		this.hasDead = false;
 
 	}
 
@@ -52,6 +57,7 @@ public class Individual extends GedcomNode {
 	}
 
 	public void setBirthday(Date birthday) {
+		this.hasBorn = true;
 		this.birthday = birthday;
 	}
 
@@ -60,6 +66,7 @@ public class Individual extends GedcomNode {
 	}
 
 	public void setDeathday(Date deathday) {
+		this.hasDead = true;
 		this.deathday = deathday;
 	}
 
@@ -77,5 +84,13 @@ public class Individual extends GedcomNode {
 
 	public void setFams(String fams) {
 		this.fams.add(fams);
+	}
+	
+	public boolean isDead(){
+		return this.hasDead;
+	}
+	
+	public boolean isBorn(){
+		return this.hasBorn;
 	}
 }
