@@ -9,8 +9,11 @@ public class Family extends GedcomNode {
 	private String husb;
 	private String wife;
 	private ArrayList<String> chil = new ArrayList<String>();
+	
 	private boolean marr = false;
+	private boolean b_marr_date = false;
 	private boolean div = false;
+	private boolean b_div_date = false;
 	private Date div_date;
 	private Date marr_date;
 
@@ -75,6 +78,7 @@ public class Family extends GedcomNode {
 	}
 
 	public void setDiv_date(Date div_date) {
+		this.b_div_date = true;
 		this.div_date = div_date;
 	}
 
@@ -83,7 +87,16 @@ public class Family extends GedcomNode {
 	}
 
 	public void setMarr_date(Date marr) {
-		this.marr_date = div_date;
+		this.b_marr_date = true;
+		this.marr_date = marr;
+	}
+	
+	public boolean getMarr_date_aval(){
+		return this.b_marr_date;
+	}
+	
+	public boolean getDiv_date_aval(){
+		return this.b_div_date;
 	}
 
 }

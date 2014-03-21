@@ -7,11 +7,7 @@
 
 package edu.stevens.cs555.testModel;
 
-import static org.junit.Assert.assertTrue;
-
-
 import static org.junit.Assert.*;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +22,8 @@ import edu.stevens.cs555.entities.ErrorOut;
 import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
+import edu.stevens.cs555.validation.BeParentToParent;
+import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.numberOfFamily;
 import edu.stevens.cs555.validation.wrongSex;
 
@@ -82,7 +80,7 @@ public class testCS555 {
 
 	@Test
 	public void testInput2Node() {
-		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/testFile.txt";
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
 		Input2Node test;
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;
@@ -91,12 +89,11 @@ public class testCS555 {
 			indNode = test.getIndNode();
 			fmNode = test.getFmNode();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		assertTrue(indNode.get("I1").getId().equals("I1"));
-		assertTrue(fmNode.get("F1").getId().equals("F1"));
+		assertTrue(indNode.get("I2004").getId().equals("I2004"));
+		assertTrue(fmNode.get("F202").getId().equals("F202"));
 	}
 
 	@Test 
@@ -108,7 +105,6 @@ public class testCS555 {
 		Hashtable<String, Family> fmNode = new Hashtable<String, Family>();
 		fmNode.put(fm.getId(), fm);
 		assertTrue(numberOfFamily.numberOutInt(fmNode)==4);
-		
 	}
 	
 	@Test
@@ -130,6 +126,55 @@ public class testCS555 {
 		indNode.put(wife.getId(), wife);
 		ArrayList<ErrorOut> errors = wrongSex.sexCheck(fmNode, indNode);
 		assertTrue(errors.size()==2);
+	}
+	
+	
+	//Test of Parent to parent
+	@Test
+	public void testBeParentToParent(){
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Input2Node test;
+		Hashtable<String, Individual> indNode = null;
+		Hashtable<String, Family> fmNode = null;
+		try {
+			test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			fmNode = test.getFmNode();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ArrayList<ErrorOut> err = BeParentToParent.ParentToParentCheck(fmNode, indNode);
+		
+		int as = 0;;
+		
+		for(ErrorOut a : err){
+			as ++;
+			System.out.println(a.info);
+			System.out.print(as);
+		}
+	}
+	
+	//Test of DIV date
+	@Test
+	public void testDIVDate()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+			ArrayList<ErrorOut> error = DIVDateCheck.DateCheck(fmNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+
+
 	}
 	
 

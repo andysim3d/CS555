@@ -18,8 +18,11 @@ public class DIVDateCheck {
 		
 		for(String key : fmNode.keySet()){
 			if((fmNode.get(key).isMarr()) &&(fmNode.get(key).isDiv()) ){
-				if(fmNode.get(key).getDiv_date().before(fmNode.get(key).getMarr_date()))
-				errors.add(new ErrorOut("3",true , "Family(" +key + ")" + "'marry date is after Divorce date"));
+				if(fmNode.get(key).getMarr_date_aval() && fmNode.get(key).getDiv_date_aval()){
+					if(fmNode.get(key).getDiv_date().before(fmNode.get(key).getMarr_date())){
+						errors.add(new ErrorOut("3",true , "Family(" +key + ")" + "marry date is after Divorce date"));
+					}
+				}
 			}
 		}
 		return errors;

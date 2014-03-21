@@ -122,8 +122,8 @@ public class Input2Node {
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
 								"MMM dd yyyy");
-						indi.setDeathday((formatter.parse(output[2] + " "
-								+ output[3] + " " + output[4])));
+						indi.setDeathday((formatter.parse(output[3] + " "
+								+ output[2] + " " + output[4])));
 					} else if (output[1].equals("FAMC")) {
 						indi.setFamc(output[2].substring(
 								output[2].indexOf("@") + 1,
@@ -142,8 +142,8 @@ public class Input2Node {
 						output = line.split(" ");
 						SimpleDateFormat formatter = new SimpleDateFormat(
 								"MMM dd yyyy");
-						fm.setMarr_date((formatter.parse(output[2] + " "
-								+ output[3] + " " + output[4])));
+						fm.setMarr_date((formatter.parse(output[3] + " "
+								+ output[2] + " " + output[4])));
 
 					} else if (output[1].equals("HUSB")) {
 						fm.setHusb(output[2].substring(

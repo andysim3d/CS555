@@ -16,7 +16,7 @@ import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 
 public class BeParentToParent {
-	public static ArrayList<ErrorOut> sexCheck(Hashtable<String, Family> fmNode, Hashtable<String, Individual> indNode){
+	public static ArrayList<ErrorOut> ParentToParentCheck(Hashtable<String, Family> fmNode, Hashtable<String, Individual> indNode){
 		ArrayList<ErrorOut> errors = new ArrayList<ErrorOut>();
 		for(String key : fmNode.keySet()){
 			ArrayList<String> Child = fmNode.get(key).getChil();
@@ -30,7 +30,7 @@ public class BeParentToParent {
 			
 			for(int i = 0; i < Child.size(); i++){
 				ArrayList<String> Fams = new ArrayList<String>();
-				Fams = indNode.get(Child.get(i)).getFamc();
+				Fams = indNode.get(Child.get(i)).getFams();
 				
 				for(int j = 0; j< Fams.size(); j++){
 					GrandChilds.addAll(fmNode.get(Fams.get(j)).getChil());
@@ -38,10 +38,10 @@ public class BeParentToParent {
 			}
 			
 			if(GrandChilds.contains(fmNode.get(key).getHusb())){
-				errors.add(new ErrorOut("2",true , "Indvidual "+ key + "is his grandchild"));
+				errors.add(new ErrorOut("2",true , "Indvidual "+ fmNode.get(key).getHusb() + "is his own grandchild"));
 			}
 			if(GrandChilds.contains(fmNode.get(key).getWife())){
-				errors.add(new ErrorOut("2",true , "Indvidual "+ key + "is her grandchild"));
+				errors.add(new ErrorOut("2",true , "Indvidual "+ fmNode.get(key).getWife() + "is her own grandchild"));
 			}
 		}
 		return errors;
