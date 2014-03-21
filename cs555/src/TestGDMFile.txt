@@ -173,7 +173,6 @@
 
 
 0 NOTE :Used to test if marry a dead person @F203@, not pass
-
 0 @I2007@ INDI
 1 NAME Brian /Wagner/
 1 SEX M
@@ -197,7 +196,6 @@
 1 WIFE @I2008@
 
 0 NOTE :Used to test if marry a dead person @F203@, not pass
-
 0 @I2009@ INDI
 1 NAME Bay /Sim/
 1 SEX M

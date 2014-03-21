@@ -24,6 +24,7 @@ import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
 import edu.stevens.cs555.validation.BeParentToParent;
 import edu.stevens.cs555.validation.DIVDateCheck;
+import edu.stevens.cs555.validation.MarWithDead;
 import edu.stevens.cs555.validation.numberOfFamily;
 import edu.stevens.cs555.validation.wrongSex;
 
@@ -172,11 +173,29 @@ public class testCS555 {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-
-
-
 	}
 	
+	@Test
+	public void testMarrWithDead()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = MarWithDead.MarryCheck(fmNode, indNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
 
 }
