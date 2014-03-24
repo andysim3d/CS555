@@ -470,7 +470,7 @@
 0 NOTE : Family @F304@, has two children.
 
 0 NOTE : Husband of @F304@
-0 @I3008@
+0 @I3008@ INDI
 1 NAME Sam /Colin/
 1 SEX M
 1 BIRT
@@ -480,7 +480,7 @@
 1 FAMS @304@
 
 0 NOTE : Wife of @F304@
-0 @I3009@
+0 @I3009@ INDI
 1 NAME Kat /Colin/
 1 SEX F
 1 BIRT
@@ -489,9 +489,8 @@
 2 DATE 13 JUN 2012
 1 FAMS @304@
 
-0 NOTE : Child of @F304@, boy
-0 @I3010@
-0 @I3009@
+0 NOTE : Child of @F304@, boy @I3010@
+0 @I3009@ INDI
 1 NAME John /Colin/
 1 SEX M
 1 BIRT
@@ -499,9 +498,8 @@
 1 FAMC @304@
 1 FAMS @305@
 
-0 NOTE : Child of @F304@, girl
-0 @I3011@
-0 @I3009@
+0 NOTE : Child of @F304@, girl @I3011@
+0 @I3009@ INDI
 1 NAME Chloe /Colin/
 1 SEX F
 1 BIRT
