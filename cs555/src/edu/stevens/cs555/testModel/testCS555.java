@@ -149,9 +149,8 @@ public class testCS555 {
 		int as = 0;;
 		
 		for(ErrorOut a : err){
-			as ++;
-			System.out.println(a.info);
-			System.out.print(as);
+			assertTrue(a.info.equals("Indvidual I2004is his own grandchild")||
+					a.info.equals("Indvidual I2005is his own grandchild"));
 		}
 	}
 	
@@ -167,7 +166,8 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = DIVDateCheck.DateCheck(fmNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
+				assertTrue(a.info.equals("Family(F104)marry date is after Divorce date"));
 			}
 		}
 		catch(Exception e){
@@ -189,7 +189,8 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = MarWithDead.MarryCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
+				assertTrue(a.info.equals("Inividual(I2007)marries to a dead people(I2008)"));
 			}
 		}
 		catch(Exception e){
