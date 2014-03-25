@@ -201,7 +201,7 @@ public class testCS555 {
 	}
 
 	//Test of POC Check
-/*	@Test
+	@Test
 	public void testCheckPOC()
 	{
 		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
@@ -214,17 +214,15 @@ public class testCS555 {
 			indNode = test.getIndNode();
 			ArrayList<ErrorOut> error = CheckPOC.pocCheck(fmNode, indNode);
 			
-			for(ErrorOut a : error){
-				//System.out.println(a.info);
-				assertTrue(a.info.equals("Family(F202)\'s parent is younger than his child")
-						||a.info.equals("Family(F252)\'s parent is yoinger than his child"));
-			}
+			assertTrue(error.get(0).info.equals("Family(F202)'s parent is younger than his child"));
+			assertTrue(error.get(2).info.equals("Family(F252)'s parent is yoinger than his child"));
+			assertTrue(error.get(3).info.equals("Family(F301)'s parent is younger than his child"));
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 	}
-*/
+
 	//Test of DBB Check
 	@Test
 	public void testCheckDBB()
