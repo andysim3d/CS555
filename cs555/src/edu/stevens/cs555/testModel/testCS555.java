@@ -23,6 +23,9 @@ import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
 import edu.stevens.cs555.validation.BeParentToParent;
+import edu.stevens.cs555.validation.CheckDBB;
+import edu.stevens.cs555.validation.CheckMTO;
+import edu.stevens.cs555.validation.CheckPOC;
 import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.MarWithDead;
 import edu.stevens.cs555.validation.numberOfFamily;
@@ -146,9 +149,8 @@ public class testCS555 {
 		}
 		ArrayList<ErrorOut> err = BeParentToParent.ParentToParentCheck(fmNode, indNode);
 		
-		int as = 0;;
-		
 		for(ErrorOut a : err){
+			System.out.println(a.info);
 			assertTrue(a.info.equals("Indvidual I2004is his own grandchild")||
 					a.info.equals("Indvidual I2005is his own grandchild"));
 		}
@@ -166,7 +168,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = DIVDateCheck.DateCheck(fmNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Family(F104)marry date is after Divorce date"));
 			}
 		}
@@ -189,7 +191,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = MarWithDead.MarryCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Inividual(I2007)marries to a dead people(I2008)"));
 			}
 		}
@@ -198,5 +200,74 @@ public class testCS555 {
 		}
 	}
 
-
+	//Test of POC Check
+/*	@Test
+	public void testCheckPOC()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = CheckPOC.pocCheck(fmNode, indNode);
+			
+			for(ErrorOut a : error){
+				//System.out.println(a.info);
+				assertTrue(a.info.equals("Family(F202)\'s parent is younger than his child")
+						||a.info.equals("Family(F252)\'s parent is yoinger than his child"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+*/
+	//Test of DBB Check
+	@Test
+	public void testCheckDBB()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = CheckDBB.dbbCheck(indNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+				assertTrue(a.info.equals("Individual(I1010)\'s deathday is before his birthday"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	//Test of MTO Check
+	@Test
+	public void testCheckMTO()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = CheckMTO.mtoCheck(fmNode, indNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+				assertTrue(a.info.equals("Family(F302)'s husband and wife are same person"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 }
