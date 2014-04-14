@@ -1,7 +1,6 @@
 package edu.stevens.cs555.validation;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Hashtable;
 
 import edu.stevens.cs555.entities.ErrorOut;
@@ -20,12 +19,12 @@ public class CheckBigamy {
 			ArrayList<String> fcc = new ArrayList<String>();
 			// scan all families and find whose wife or husband is key
 			for (String fmk : fmNode.keySet()) {
-				if ((fmNode.get(fmk).getHusb() == key)
-						|| (fmNode.get(fmk).getWife() == key)
-						&& ((fmNode.get(fmk).isMarr()) && (fmNode.get(fmk)
-								.isDiv()))) {
+				if ((fmNode.get(fmk).getHusb().equals(key))
+						|| (fmNode.get(fmk).getWife().equals(key)))
+				{
 					fcc.add(fmk);
 				}
+			}
 				// compare all marry date and div date
 				if (fcc.size() > 1) {
 					for (int i = 0; i < fcc.size() - 1; i++) {
@@ -45,7 +44,7 @@ public class CheckBigamy {
 
 			}
 
-		}
+		
 		return errors;
 	}
 
@@ -53,10 +52,16 @@ public class CheckBigamy {
 		if (fm1.getMarr_date_aval() && fm1.getDiv_date_aval()
 				&& fm2.getDiv_date_aval() && fm2.getMarr_date_aval()) {
 
-			if ((fm1.getMarr_date().before(fm2.getMarr_date()) && (fm1
-					.getDiv_date().after(fm2.getMarr_date())))) {
+			if ( (fm1.getMarr_date().before(fm2.getMarr_date())) && (fm1
+					.getDiv_date().after(fm2.getMarr_date()))) {
 				return true;
-			} else {
+			}
+			if ( (fm2.getMarr_date().before(fm1.getMarr_date())) && (fm2
+					.getDiv_date().after(fm1.getMarr_date()))) {
+				return true;
+			}
+			
+			else {
 				return false;
 			}
 		} else {

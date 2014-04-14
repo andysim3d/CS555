@@ -23,6 +23,7 @@ import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
 import edu.stevens.cs555.validation.BeParentToParent;
+import edu.stevens.cs555.validation.CheckBigamy;
 import edu.stevens.cs555.validation.CheckDBB;
 import edu.stevens.cs555.validation.CheckMTO;
 import edu.stevens.cs555.validation.CheckPOC;
@@ -227,7 +228,7 @@ public class testCS555 {
 	@Test
 	public void testCheckDBB()
 	{
-		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		String str = "/Users/andy/git/CS555/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
 		Hashtable<String, Individual> indNode = null;
 		
 		try{
@@ -244,6 +245,34 @@ public class testCS555 {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testCheckBigamy()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Individual> indNode = null;
+		Hashtable<String, Family> fmNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			fmNode = test.getFmNode();
+			
+			ArrayList<ErrorOut> error = CheckBigamy.MarryCheck(fmNode, indNode);//.dbbCheck(indNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+				//assertTrue(a.info.equals("Individual(I1010)\'s deathday is before his birthday"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	
 	//Test of MTO Check
 	@Test
@@ -269,3 +298,6 @@ public class testCS555 {
 		}
 	}
 }
+
+
+
