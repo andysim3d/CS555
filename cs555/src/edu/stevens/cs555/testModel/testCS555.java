@@ -22,6 +22,7 @@ import edu.stevens.cs555.entities.ErrorOut;
 import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 import edu.stevens.cs555.factory.Input2Node;
+import edu.stevens.cs555.validation.AbnormalLongLife;
 import edu.stevens.cs555.validation.BeParentToParent;
 import edu.stevens.cs555.validation.CheckBigamy;
 import edu.stevens.cs555.validation.CheckDBB;
@@ -29,6 +30,7 @@ import edu.stevens.cs555.validation.CheckMTO;
 import edu.stevens.cs555.validation.CheckPOC;
 import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.MarWithDead;
+import edu.stevens.cs555.validation.MarriageAncestor;
 import edu.stevens.cs555.validation.NumberOfFamily;
 import edu.stevens.cs555.validation.WrongSex;
 public class testCS555 {
@@ -251,7 +253,7 @@ public class testCS555 {
 		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
 		Hashtable<String, Individual> indNode = null;
 		Hashtable<String, Family> fmNode = null;
-		
+		boolean out = false;
 		try{
 			Input2Node test = Input2Node.getInstance(str);
 			indNode = test.getIndNode();
@@ -261,8 +263,12 @@ public class testCS555 {
 			
 			for(ErrorOut a : error){
 				System.out.println(a.info);
+				if (a.info.equals("IndividalI3005is a bigamy")) {
+					out = true;
+				}
 				//assertTrue(a.info.equals("Individual(I1010)\'s deathday is before his birthday"));
 			}
+			assertTrue(out);
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -295,6 +301,50 @@ public class testCS555 {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+
+	@Test
+	public void testAbnormalLongLife(){
+		try{
+			String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+			Hashtable<String, Individual> indNode = null;
+			Input2Node test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> errors = AbnormalLongLife.checkIndi(indNode);
+			boolean out = false;
+			for(ErrorOut a : errors){
+				System.out.println(a.info);
+				if(a.info.equals("Indvidual I4008's age is greater than 120")){
+					out = true;
+				}
+			}
+			 assertTrue(out);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+	}
+
+	@Test
+	public void testMarriageAncestor(){
+		try{
+			String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+			Hashtable<String, Individual> indNode = null;
+			Hashtable<String, Family> fmNode = null;
+			Input2Node test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			fmNode = test.getFmNode();
+			ArrayList<ErrorOut> errors = MarriageAncestor.checkIndi(fmNode, indNode);
+			boolean out= false;
+			for(ErrorOut a : errors){
+				if(a.info.equals("Individual (I4007) marry with parent")){
+					out = true;
+				};	
+			}
+			assertTrue(out);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 	}
 }
 
