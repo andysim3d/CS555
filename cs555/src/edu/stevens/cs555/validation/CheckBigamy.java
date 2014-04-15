@@ -9,7 +9,7 @@ import edu.stevens.cs555.entities.Individual;
 
 public class CheckBigamy {
 
-	public static ArrayList<ErrorOut> MarryCheck(
+	public static ArrayList<ErrorOut> CheckBigmay(
 			Hashtable<String, Family> fmNode,
 			Hashtable<String, Individual> indNode) {
 

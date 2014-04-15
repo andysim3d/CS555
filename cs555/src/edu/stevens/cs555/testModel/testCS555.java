@@ -258,7 +258,7 @@ public class testCS555 {
 			indNode = test.getIndNode();
 			fmNode = test.getFmNode();
 			
-			ArrayList<ErrorOut> error = CheckBigamy.MarryCheck(fmNode, indNode);//.dbbCheck(indNode);
+			ArrayList<ErrorOut> error = CheckBigamy.CheckBigmay(fmNode, indNode);//.dbbCheck(indNode);
 			
 			for(ErrorOut a : error){
 				System.out.println(a.info);
