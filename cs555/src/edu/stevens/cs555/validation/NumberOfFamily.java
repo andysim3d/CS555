@@ -8,7 +8,7 @@ import edu.stevens.cs555.entities.ErrorOut;
 import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 
-public class numberOfFamily {
+public class NumberOfFamily {
 	public static int numberOutInt(Hashtable<String, Family> fmNode){
 		
 		for(String key : fmNode.keySet()){

@@ -29,9 +29,8 @@ import edu.stevens.cs555.validation.CheckMTO;
 import edu.stevens.cs555.validation.CheckPOC;
 import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.MarWithDead;
-import edu.stevens.cs555.validation.numberOfFamily;
-import edu.stevens.cs555.validation.wrongSex;
-
+import edu.stevens.cs555.validation.NumberOfFamily;
+import edu.stevens.cs555.validation.WrongSex;
 public class testCS555 {
 
 	@BeforeClass
@@ -109,7 +108,7 @@ public class testCS555 {
 		fm.setChil("Jerry");
 		Hashtable<String, Family> fmNode = new Hashtable<String, Family>();
 		fmNode.put(fm.getId(), fm);
-		assertTrue(numberOfFamily.numberOutInt(fmNode)==4);
+		assertTrue(NumberOfFamily.numberOutInt(fmNode)==4);
 	}
 	
 	@Test
@@ -129,7 +128,7 @@ public class testCS555 {
 		Hashtable<String, Individual> indNode = new Hashtable<String, Individual> ();
 		indNode.put(husb.getId(), husb);
 		indNode.put(wife.getId(), wife);
-		ArrayList<ErrorOut> errors = wrongSex.sexCheck(fmNode, indNode);
+		ArrayList<ErrorOut> errors = WrongSex.sexCheck(fmNode, indNode);
 		assertTrue(errors.size()==2);
 	}
 	
