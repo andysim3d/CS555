@@ -172,6 +172,12 @@
 1 BIRT
 2 DATE 17 JAN 1965
 1 FAMC @F301@
+0 @I3010@ INDI
+1 NAME Martin /Fox/
+1 SEX M
+1 BIRT
+2 DATE 17 FEB 1965
+1 FAMC @F301@
 0 NOTE : Husband of family 301.
 0 @I3004@ INDI
 1 NAME Daniel /Fox/
@@ -195,6 +201,7 @@
 1 HUSB @I3004@
 1 WIFE @I3005@
 1 CHIL @I3003@
+1 CHIL @I3010@
 0 NOTE : implement a sample of Marry to oneself
 0 NOTE : Husband of family 302
 0 @I3006@ INDI

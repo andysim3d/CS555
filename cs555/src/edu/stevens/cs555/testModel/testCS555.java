@@ -32,6 +32,7 @@ import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.MarWithDead;
 import edu.stevens.cs555.validation.MarriageAncestor;
 import edu.stevens.cs555.validation.NumberOfFamily;
+import edu.stevens.cs555.validation.SiblingBirthCheck;
 import edu.stevens.cs555.validation.WrongSex;
 public class testCS555 {
 
@@ -152,7 +153,7 @@ public class testCS555 {
 		ArrayList<ErrorOut> err = BeParentToParent.ParentToParentCheck(fmNode, indNode);
 		
 		for(ErrorOut a : err){
-			System.out.println(a.info);
+			//System.out.println(a.info);
 			assertTrue(a.info.equals("Indvidual I2004is his own grandchild")||
 					a.info.equals("Indvidual I2005is his own grandchild"));
 		}
@@ -170,7 +171,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = DIVDateCheck.DateCheck(fmNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				assertTrue(a.info.equals("Family(F104)marry date is after Divorce date"));
 			}
 		}
@@ -193,7 +194,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = MarWithDead.MarryCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				assertTrue(a.info.equals("Inividual(I2007)marries to a dead people(I2008)"));
 			}
 		}
@@ -238,7 +239,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckDBB.dbbCheck(indNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				assertTrue(a.info.equals("Individual(I1010)\'s deathday is before his birthday"));
 			}
 		}
@@ -262,7 +263,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckBigamy.CheckBigmay(fmNode, indNode);//.dbbCheck(indNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				if (a.info.equals("IndividalI3005is a bigamy")) {
 					out = true;
 				}
@@ -294,7 +295,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckMTO.mtoCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				assertTrue(a.info.equals("Family(F302)'s husband and wife are same person"));
 			}
 		}
@@ -314,7 +315,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> errors = AbnormalLongLife.checkIndi(indNode);
 			boolean out = false;
 			for(ErrorOut a : errors){
-				System.out.println(a.info);
+				//System.out.println(a.info);
 				if(a.info.equals("Indvidual I4008's age is greater than 120")){
 					out = true;
 				}
@@ -346,6 +347,31 @@ public class testCS555 {
 				e.printStackTrace();
 			}
 	}
+	
+	@Test
+	public void testSibilingBirthDate(){
+
+		try{
+			String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+			Hashtable<String, Individual> indNode = null;
+			Hashtable<String, Family> fmNode = null;
+			Input2Node test = Input2Node.getInstance(str);
+			indNode = test.getIndNode();
+			fmNode = test.getFmNode();
+			ArrayList<ErrorOut> errors = SiblingBirthCheck.SBCheck(fmNode, indNode);//(fmNode, indNode);
+			boolean out= false;
+			for(ErrorOut a : errors){
+				System.out.println(a.info);
+				if(a.info.equals("I3003 and I3010 are have a abnormal birth date")){
+					out = true;
+				};	
+			}
+			assertTrue(out);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+	}
+	
 }
 
 

@@ -12,13 +12,31 @@ import java.util.Date;
 import java.util.Hashtable;
 
 import edu.stevens.cs555.entities.ErrorOut;
+import edu.stevens.cs555.entities.Family;
 import edu.stevens.cs555.entities.Individual;
 
 public class SiblingBirthCheck {
 	
-	public static ArrayList<ErrorOut> SBCheck(Hashtable<String, Individual> indNode){
+	public static ArrayList<ErrorOut> SBCheck(Hashtable<String, Family> fmNode,Hashtable<String, Individual> indNode){
 		ArrayList<ErrorOut> errors = new ArrayList<ErrorOut>();
 
+		for (String keys : fmNode.keySet()) {
+			ArrayList<String> Siblings = fmNode.get(keys).getChil();
+			if(Siblings.size() <=1){
+				continue;
+			}
+			
+			for (int i = 0; i < Siblings.size()-1; i++) {
+				for (int j = i+1; j < Siblings.size(); j++) {
+					if ( DateCheck(indNode.get(Siblings.get(i)), indNode.get(Siblings.get(j)) )) {
+						errors.add(new ErrorOut("13", true, 
+								Siblings.get(i).toString() + " and " +Siblings.get(j).toString()+
+								" are have a abnormal birth date"));
+					}
+				}
+			}
+			
+		}
 		return errors;
 	}
 	
