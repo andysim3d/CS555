@@ -49,13 +49,13 @@ public class Input2Node {
 			while (line != null) {
 
 				if (line.startsWith("0")) {
-					System.out.println(line);
+					//System.out.println(line);
 					if (line.endsWith("TRLR")) {
 						if (IorF != null && IorF.equals("I")) {
 							indNode.put(indi.getId(), indi);
 						} else if (IorF != null && IorF.equals("F")) {
 							fmNode.put(fm.getId(), fm);
-							System.out.println(fm.getId());
+							//System.out.println(fm.getId());
 						}
 						br.close();
 						return;
@@ -90,7 +90,7 @@ public class Input2Node {
 							indNode.put(indi.getId(), indi);
 						} else if (IorF != null && IorF.equals("F")) {
 							fmNode.put(fm.getId(), fm);
-							System.out.println(fm.getId());
+							//System.out.println(fm.getId());
 						}
 						IorF = null;
 
@@ -133,7 +133,7 @@ public class Input2Node {
 						indi.setFams(output[2].substring(
 								output[2].indexOf("@") + 1,
 								output[2].lastIndexOf("@")));
-						System.out.println(line);
+						//System.out.println(line);
 
 					} else if (output[1].equals("MARR")) {
 						fm.setMarr(true);

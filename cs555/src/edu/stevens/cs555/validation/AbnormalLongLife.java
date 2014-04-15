@@ -20,7 +20,7 @@ public class AbnormalLongLife {
 	public static ArrayList<ErrorOut> checkIndi(Hashtable<String, Individual> indiNodes) {
 		ArrayList<ErrorOut> errors = new ArrayList<ErrorOut>();
 		for (String key : indiNodes.keySet()) {
-			if (indiNodes.get(key).isDead()) {
+			if (indiNodes.get(key).isDead() || (!indiNodes.get(key).isBorn())) {
 
 			} else {
 				long dateDiff = Calendar.getInstance().getTime().getTime()

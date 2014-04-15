@@ -26,7 +26,9 @@ import edu.stevens.cs555.validation.AbnormalLongLife;
 import edu.stevens.cs555.validation.BeParentToParent;
 import edu.stevens.cs555.validation.CheckBigamy;
 import edu.stevens.cs555.validation.CheckDBB;
+import edu.stevens.cs555.validation.CheckMBB;
 import edu.stevens.cs555.validation.CheckMTO;
+import edu.stevens.cs555.validation.CheckMTS;
 import edu.stevens.cs555.validation.CheckPOC;
 import edu.stevens.cs555.validation.DIVDateCheck;
 import edu.stevens.cs555.validation.MarWithDead;
@@ -151,12 +153,14 @@ public class testCS555 {
 			e.printStackTrace();
 		}
 		ArrayList<ErrorOut> err = BeParentToParent.ParentToParentCheck(fmNode, indNode);
-		
+		boolean out = false;
 		for(ErrorOut a : err){
-			//System.out.println(a.info);
-			assertTrue(a.info.equals("Indvidual I2004is his own grandchild")||
-					a.info.equals("Indvidual I2005is his own grandchild"));
+			System.out.println(a.info);
+			if (a.info.equals("Indvidual I2004is his own grandchild")) {
+				out = true;
+			}
 		}
+		assertTrue(out);
 	}
 	
 	//Test of DIV date
@@ -171,7 +175,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = DIVDateCheck.DateCheck(fmNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Family(F104)marry date is after Divorce date"));
 			}
 		}
@@ -194,7 +198,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = MarWithDead.MarryCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Inividual(I2007)marries to a dead people(I2008)"));
 			}
 		}
@@ -239,7 +243,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckDBB.dbbCheck(indNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Individual(I1010)\'s deathday is before his birthday"));
 			}
 		}
@@ -263,7 +267,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckBigamy.CheckBigmay(fmNode, indNode);//.dbbCheck(indNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				if (a.info.equals("IndividalI3005is a bigamy")) {
 					out = true;
 				}
@@ -295,7 +299,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> error = CheckMTO.mtoCheck(fmNode, indNode);
 			
 			for(ErrorOut a : error){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				assertTrue(a.info.equals("Family(F302)'s husband and wife are same person"));
 			}
 		}
@@ -315,7 +319,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> errors = AbnormalLongLife.checkIndi(indNode);
 			boolean out = false;
 			for(ErrorOut a : errors){
-				//System.out.println(a.info);
+				System.out.println(a.info);
 				if(a.info.equals("Indvidual I4008's age is greater than 120")){
 					out = true;
 				}
@@ -338,6 +342,7 @@ public class testCS555 {
 			ArrayList<ErrorOut> errors = MarriageAncestor.checkIndi(fmNode, indNode);
 			boolean out= false;
 			for(ErrorOut a : errors){
+				System.out.println(a.info);
 				if(a.info.equals("Individual (I4007) marry with parent")){
 					out = true;
 				};	
@@ -370,8 +375,53 @@ public class testCS555 {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+	}	//Test of MTS Check
+	@Test
+	public void testCheckMTS()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+//		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+//			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = CheckMTS.mtsCheck(fmNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+				assertTrue(a.info.equals("Family(605)'s husband and wife are siblings"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
+	//Test of MBB Check
+	@Test
+	public void testCheckMBB()
+	{
+		String str = "/Users/andy/git/CS555.stevens/cs555/src/edu/stevens/cs555/testModel/P2P.txt";
+		Hashtable<String, Family> fmNode = null;
+		Hashtable<String, Individual> indNode = null;
+		
+		try{
+			Input2Node test = Input2Node.getInstance(str);
+			fmNode = test.getFmNode();
+			indNode = test.getIndNode();
+			ArrayList<ErrorOut> error = CheckMBB.mbbCheck(fmNode, indNode);
+			
+			for(ErrorOut a : error){
+				System.out.println(a.info);
+				assertTrue(a.info.equals("Family(501)'s husband and wife are married before their birth"));
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 }
 
 

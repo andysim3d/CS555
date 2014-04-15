@@ -26,7 +26,7 @@ public class CheckMTS {
 					ArrayList<String> children = innerFamily.getChil();
 					
 					if(children.contains(father) && children.contains(mother)){
-						errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s husband and wife are sablings"));
+						errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s husband and wife are siblings"));
 					}
 				}
 			}

@@ -20,10 +20,11 @@ public class CheckMBB {
 			Family family = fmNode.get(key);
 			Individual father = indNode.get(family.getHusb());
 			Individual mother = indNode.get(family.getWife());
-			
-			if(family.isMarr() && family.getMarr_date_aval() && father.isBorn() && mother.isBorn()){
-				if(family.getMarr_date().before(father.getBirthday()) || family.getMarr_date().before(mother.getBirthday())){
-					errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s husband and wife are married before their birth"));
+			if(father != null && mother != null){
+				if(family.isMarr() && family.getMarr_date_aval() && father.isBorn() && mother.isBorn()){
+					if(family.getMarr_date().before(father.getBirthday()) || family.getMarr_date().before(mother.getBirthday())){
+						errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s husband and wife are married before their birth"));
+					}
 				}
 			}
 		}

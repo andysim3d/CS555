@@ -16,6 +16,8 @@ public class Family extends GedcomNode {
 	private boolean b_div_date = false;
 	private Date div_date;
 	private Date marr_date;
+	private boolean hasHus = false;
+	private boolean hasWife = false;
 
 	public Family(String id) {
 		this.id = id;
@@ -39,9 +41,11 @@ public class Family extends GedcomNode {
 
 	public void setHusb(String husb) {
 		this.husb = husb;
+		this.hasHus = true;
 	}
 
 	public String getWife() {
+		this.hasWife = true;
 		return wife;
 	}
 
@@ -99,4 +103,13 @@ public class Family extends GedcomNode {
 		return this.b_div_date;
 	}
 
+	public boolean HasHusb(){
+		return this.hasHus;
+	}
+	
+	public boolean HasWife(){
+		return this.hasWife;
+	}
+	
+	
 }

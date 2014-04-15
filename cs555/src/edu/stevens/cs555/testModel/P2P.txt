@@ -270,4 +270,62 @@
 1 SEX F
 1 BIRT
 2 DATE 2 FEB 1850
+0 NOTE: For test marry to siblings
+0 NOTE : Child of @F304@, boy @I3010@
+0 @I6010@ INDI
+1 NAME John /Colin/
+1 SEX M
+1 BIRT
+2 DATE 2 AUG 1977
+1 FAMC @604@
+1 FAMS @605@
+0 NOTE : Child of @F304@, girl @I3011@
+0 @I6011@ INDI
+1 NAME Chloe /Colin/
+1 SEX F
+1 BIRT
+2 DATE 8 JAN 1980
+1 FAMC @604@
+1 FAMS @605@
+0 @I6008@ INDI
+1 NAME YIC /Colin/
+1 SEX M
+0 @I6009@ INDI
+1 NAME JUN /Colin/
+1 SEX F
+0 NOTE : Family @F304@
+0 @604@ FAM
+1 MARR
+2 DATE 19 FEB 1973
+1 HUSB @I6008@
+1 WIFE @I6009@
+1 CHIL @I6010@
+1 CHIL @I6011@
+0 NOTE : Family @F305@, sibling of @I6010@ and @I63011@ married.
+0 @605@ FAM
+1 MARR
+2 DATE 5 MAR 2000
+1 HUSB @I6010@
+1 WIFE @I6011@
+0 NOTE: For test marry before birth
+0 NOTE : Child of @F501@, boy @I5001@
+0 @I5001@ INDI
+1 NAME John /Lee/
+1 SEX M
+1 BIRT
+2 DATE 2 JAN 1977
+1 FAMS @501@
+0 NOTE : Child of @F501@, girl @I5002@
+0 @I5002@ INDI
+1 NAME Jenny /Colin/
+1 SEX F
+1 BIRT
+2 DATE 8 MAR 1980
+1 FAMS @501@
+0 NOTE : Family @F501@
+0 @501@ FAM
+1 MARR
+2 DATE 5 AUG 1970
+1 HUSB @I5001@
+1 WIFE @I5002@
 0 TRLR

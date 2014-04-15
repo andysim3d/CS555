@@ -26,7 +26,7 @@ public class CheckPOC {
 			for(String c : children){
 				Individual child = indNode.get(c);
 				
-				if(father != null){
+				if(father != null && child != null){
 					if(father.isBorn() && child.isBorn()){
 						if(father.getBirthday().after(child.getBirthday())){
 							errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s parent is younger than his child"));
@@ -34,9 +34,11 @@ public class CheckPOC {
 					}
 				}
 					
-				if(mother != null){
-					if(mother.getBirthday().after(child.getBirthday())){
-						errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s parent is yoinger than his child"));
+				if(mother != null && child != null){
+					if (mother.isBorn() && child.isBorn()) {
+						if(mother.getBirthday().after(child.getBirthday())){
+							errors.add(new ErrorOut("3", true , "Family(" +key + ")" + "'s parent is yoinger than his child"));
+						}
 					}
 				}	
 			}	
