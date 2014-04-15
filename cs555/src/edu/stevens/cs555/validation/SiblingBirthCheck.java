@@ -1,3 +1,9 @@
+/* Name: SiblingBirthCheck.java
+ * Author: Pengfei Zhang
+ * Date: 18/03/2014
+ * 
+ * Function: Check if sibling's birthday is gap longer than 10 mouth
+ */
 package edu.stevens.cs555.validation;
 
 import java.util.ArrayList;
